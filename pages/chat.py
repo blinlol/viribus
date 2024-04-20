@@ -1,16 +1,7 @@
 import streamlit as st
 import time
 import random
-bot = None
-
-
-@st.cache_resource
-def import_bot():
-    import bot
-    return bot
-
-bot = import_bot()
-
+import bot
 
 def typewrite(message: str):
     for s in message:
@@ -26,7 +17,7 @@ def user(message: str):
 
 def assistant(question):
     with st.chat_message("assistant", avatar="🤖"):
-        answer = bot.answer(prompt, st.session_state.uid)
+        answer = bot.answer(prompt)
         response = st.write_stream(typewrite(answer))
     st.session_state.messages.append({"role": "assistant", "content": response})
 
