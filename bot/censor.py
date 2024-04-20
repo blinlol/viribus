@@ -4,7 +4,7 @@ from string import punctuation
 from numpy import array, any
 from pymorphy3 import MorphAnalyzer
 
-def hui(
+def censor(
     text:str, 
     profanities: list
     ) -> bool:
