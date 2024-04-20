@@ -7,6 +7,8 @@ nltk.download('popular')
 token = 'Токен для связи с тг ботом'
 name_qa_model = "timpal0l/mdeberta-v3-base-squad2"
 name_emb_model = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+name_filter_emb = "cointegrated/rubert-tiny2"
+path_ml_filter_model = "bot/data_base/KNN_best.pkl"
 root = "bot/data_base"
 replace_dict = {'посвят': 'Посвящение дня физика',
                 'посвящ': 'Посвящение дня физика',
