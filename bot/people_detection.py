@@ -11,7 +11,7 @@ def get_image_path(path):
   return str(path)
 
 detection_model = init_detection_model()
-image_path = get_image_path('/content/many_people.jpg')
+image_path = get_image_path()
 
 # Функция для обнаружения объектов на изображении
 def detect_objects(image_path):
