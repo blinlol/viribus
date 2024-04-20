@@ -11,7 +11,6 @@ def get_image_path(path):
   return str(path)
 
 detection_model = init_detection_model()
-image_path = get_image_path()
 
 # Функция для обнаружения объектов на изображении
 def detect_objects(image_path):
@@ -44,4 +43,7 @@ def info_stolovka(image_path):
     print("Загруженность столовой = {}%".format(round(num_people/60*100,2)))
     print("Время ожидания = {} минут".format(round(time)))
 
-info_stolovka(image_path)
+
+if __name__ == "__main__":
+    image_path = get_image_path()
+    info_stolovka(image_path)

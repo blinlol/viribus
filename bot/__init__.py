@@ -2,6 +2,7 @@ from .init_model import data_base, model_pipeline
 from .UserInfo import UserInfo
 from .config import replace_dict, profanities
 from .censor import censor
+from .people_detection import count_people 
 
 sessions = {}
 
