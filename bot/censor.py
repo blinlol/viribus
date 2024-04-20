@@ -4,13 +4,8 @@ from string import punctuation
 from numpy import array, any
 from pymorphy3 import MorphAnalyzer
 
-<<<<<<< Updated upstream
-def hui(
-    text:str, 
-=======
 def censor(
-    question:str, 
->>>>>>> Stashed changes
+    question:str,
     profanities: list
     ) -> bool:
   question = question.lower().translate(str.maketrans('', '', punctuation))

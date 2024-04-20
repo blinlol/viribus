@@ -1,9 +1,9 @@
-<<<<<<< Updated upstream
-=======
 from .init_model import data_base, model_pipeline, filter_emb, filter_ml
 from .UserInfo import UserInfo
 from .config import replace_dict, profanities
 from .censor import censor, filter_question
+from .people_detection import count_people 
+
 
 def answer(question: str):
     if censor(question, profanities):
@@ -16,4 +16,4 @@ def answer(question: str):
             return "По твоему запросу ничего не нашлось. Попробуй спросить в группе профкома."
         else:
             return "Нет ответа"
->>>>>>> Stashed changes
+
