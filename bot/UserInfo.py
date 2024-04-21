@@ -22,13 +22,8 @@ class UserInfo:
         context=self.contexts[self.number_context].page_content
         )['answer'].split(".")[0]
 
-<<<<<<< Updated upstream
-  def correction_answer(self, data_base, model_pipeline, replace_dict) -> str:
-    self.correction_que(replace_dict)
-=======
   def correction_answer(self, data_base, model_pipeline, dict_links) -> str:
     #self.correction_que(replace_dict)
->>>>>>> Stashed changes
     self.search_contexts(data_base)
     self.search_answer(model_pipeline)
     
@@ -38,11 +33,5 @@ class UserInfo:
       for sentence in context.split("."):
         if answer in sentence:
           sentence = sentence.replace(';', '\n')
-          return f"{sentence}."
-    return "Ничего не найдено..."
-  
-# class User:
-#     def __init__(self) -> None:
-#         pass
-    
-#     def process_quetion(self, quetion):
+          return f"{sentence}.", dict_links[context]
+    return "Ничего не найдено...", ""
