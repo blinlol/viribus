@@ -11,6 +11,7 @@ class UserInfo:
       if i in question:
         question = question.replace(i, replace_dict[i])
     self.question = question
+    return question
 
   def search_contexts(self, data_base) -> None:
     self.contexts = data_base.similarity_search(self.question)
@@ -21,8 +22,8 @@ class UserInfo:
         context=self.contexts[self.number_context].page_content
         )['answer'].split(".")[0]
 
-  def correction_answer(self, data_base, model_pipeline, replace_dict, dict_links) -> str:
-    self.correction_que(replace_dict)
+  def correction_answer(self, data_base, model_pipeline, dict_links) -> str:
+    #self.correction_que(replace_dict)
     self.search_contexts(data_base)
     self.search_answer(model_pipeline)
     
