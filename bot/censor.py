@@ -26,7 +26,7 @@ def filter_question(question, filter_emb, filter_ml) -> int:
   return label
 
 def new_filter_question(question, all_db)->bool:
-  score = all_db.similarity_search(question)
+  score = all_db.similarity_search_with_score(question)[0][1]
   if score < 1.41:
     return True
   return False 
