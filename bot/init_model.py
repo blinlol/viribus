@@ -9,6 +9,10 @@ from optimum.onnxruntime import ORTModelForQuestionAnswering
 
 from .config import name_emb_model, name_qa_model, data_list, name_filter_emb, path_ml_filter_model 
 
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning)
+
 def init_qa_model(name_qa_model: str):
     only_name = name_qa_model[name_qa_model.find("/") + 1:]
     # if name_qa_model in os.listdir("bot/models"):
@@ -53,4 +57,5 @@ def init_cfilter_ml_model(path_ml_filter_model: str):
 data_base = init_emb_model(name_emb_model, data_list)
 model_pipeline = init_qa_model(name_qa_model)
 filter_emb = init_filter_emb(name_filter_emb)
-filter_ml = init_cfilter_ml_model(path_ml_filter_model)
+# filter_ml = init_cfilter_ml_model(path_ml_filter_model)
+filter_ml = None
