@@ -18,8 +18,8 @@ def init_qa_model(name_qa_model: str):
     # if name_qa_model in os.listdir("bot/models"):
     #     with open("bot/models/" + only_name, "rb") as f:
     #         return pickle.load(f)
-    # model = ORTModelForQuestionAnswering.from_pretrained(name_qa_model, from_transformers=True)
-    model = AutoModelForQuestionAnswering.from_pretrained(name_qa_model)
+    model = ORTModelForQuestionAnswering.from_pretrained(name_qa_model, from_transformers=True)
+    # model = AutoModelForQuestionAnswering.from_pretrained(name_qa_model)
     tokenizer = AutoTokenizer.from_pretrained(name_qa_model)
     tokenizer.model_input_names = ['input_ids', 'attention_mask']
 
@@ -57,5 +57,5 @@ def init_cfilter_ml_model(path_ml_filter_model: str):
 data_base = init_emb_model(name_emb_model, data_list)
 model_pipeline = init_qa_model(name_qa_model)
 filter_emb = init_filter_emb(name_filter_emb)
-# filter_ml = init_cfilter_ml_model(path_ml_filter_model)
-filter_ml = None
+filter_ml = init_cfilter_ml_model(path_ml_filter_model)
+# filter_ml = None

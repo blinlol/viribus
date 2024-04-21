@@ -6,7 +6,7 @@ import bot
 def typewrite(message: str):
     for s in message:
         yield s
-        time.sleep(random.random() * 0)
+        time.sleep(random.random() * 0.03)
 
 
 def user(message: str):
@@ -52,8 +52,9 @@ def answer_is_bad(quetion, context):
     del st.session_state.messages[-1]
     st.session_state.bad = [quetion, context]
 
-
-st.title("MAKAKI V ATAKE")
+st.markdown("""
+# QuantumMind Chat 🧠
+""")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
