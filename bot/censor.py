@@ -24,3 +24,9 @@ def filter_question(question, filter_emb, filter_ml) -> int:
   question_emb = array([filter_emb.embed_query(question)])
   label = filter_ml.predict(question_emb.reshape(1, -1))
   return label
+
+def new_filter_question(question, all_db)->bool:
+  score = all_db.similarity_search(question)
+  if score < 1.41:
+    return True
+  return False 
