@@ -11,9 +11,9 @@ from .config import name_emb_model, name_qa_model, data_list, name_filter_emb, p
 
 def init_qa_model(name_qa_model: str):
     only_name = name_qa_model[name_qa_model.find("/") + 1:]
-    if name_qa_model in os.listdir("bot/models"):
-        with open("bot/models/" + only_name, "rb") as f:
-            return pickle.load(f)
+    # if name_qa_model in os.listdir("bot/models"):
+    #     with open("bot/models/" + only_name, "rb") as f:
+    #         return pickle.load(f)
     # model = ORTModelForQuestionAnswering.from_pretrained(name_qa_model, from_transformers=True)
     model = AutoModelForQuestionAnswering.from_pretrained(name_qa_model)
     tokenizer = AutoTokenizer.from_pretrained(name_qa_model)
@@ -25,8 +25,8 @@ def init_qa_model(name_qa_model: str):
         tokenizer=tokenizer,
         device= torch.device("cuda" if torch.cuda.is_available() else "cpu")
         )
-    with open("bot/models/" + only_name, "wb") as f:
-        pickle.dump(model_pipeline, f, protocol=-1)
+    # with open("bot/models/" + only_name, "wb") as f:
+    #     pickle.dump(model_pipeline, f, protocol=-1)
     return model_pipeline
 
 def init_emb_model(name_emb_model: str, data_list: list):
